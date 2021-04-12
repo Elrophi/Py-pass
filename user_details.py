@@ -43,4 +43,14 @@ class Details:
                 current_user = user.f_name
         return current_user
 
+    def __init__(self,username,site,account,password):
+        '''
+        defining properties for each usser object
+        '''
+
+        self.username = username
+        self.site = site
+        self.account = account
+        self.password = password
+
 
