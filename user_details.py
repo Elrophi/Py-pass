@@ -19,7 +19,7 @@ class User:
         self.l_name = l_name
         self.password = password
 
-    def save_user_info(self):
+    def save_user_details(self):
         '''
         save new created user instances
         '''
