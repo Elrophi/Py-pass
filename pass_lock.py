@@ -100,12 +100,61 @@ def main():
                         break
 
 
-                    elif options == "ex":
+                    elif options == "cc":
                         print("Enter your Details")
+                        site = input('Enter the site\'s name - ').strip()
+                        account = input("Enter your account\'s name - ").strip()
+                        while True:
+                            # print("*"*40)
+                            print("Do you want\n up-User Password\n or gp-Generated Password\n or ex-Exit")
+                            pwd = input().lower().strip()
+                            if pwd == 'up':
+                                print("*"*40)
+                                password = input("Enter your password- ").strip()
+                                break
+                            elif pwd == 'gp':
+                               print("*"*40)
+                               password = new_password()
+                               break
+                            elif pwd == 'ex':
+                                print("Exited!")
+                                break
+                            else:
+                                print("Wrong input! Try again")
 
+                        save_details(create_detail(username,site,account,password))
+                        print("*"*40)
+                        print(f"Details given: site- {site} account- {account} password- {password}")
 
+                    elif options == "dc":
+                        print("*"*40)
+                        if display_details(username):
+                            print("Your Credentials:")
+                            print("*"*40)
+                            for details in display_details(username):
+                                print(f"site - {details.site} account - {details.account} password - {details.password}")
+                                print("*"*40)
+                        else:
+                            print("*"*40)
+                            print("You dont seem to have any credential saved yet, you can create a new one")
+                            print("*"*40)
+                    
+                    elif options == "cp":
+                        print("*"*40)
+                        pick_site = input("Enter site name and password to copy")
+                        copy_details(pick_site)
+                        print("*"*40)
+                    else:
+                        print("Wrong input! Try again")
 
-        
+            else:
+                print("Wrong input! Try again")
+
+        else:
+                print("Wrong input! Try again")
+
+                        
+
 
 
 if __name__ == '__main__':
