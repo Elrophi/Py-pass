@@ -61,18 +61,24 @@ def main():
     while True:
         print('*'*40)
         print("Select task to execute\n ca-Create Account \n li-Log In\n ex-Exit")
+        print("*"*40)
         # strip() removes spaces at the begining and end of the input the user is providing
         options = input().lower().strip()
         if options == 'ca':
             print("*"*40+"\n")
             print("Fill in your details")
-            fname = input('Enter your first name - ').strip()
-            lname = input('Enter your last name - ').strip()
+            f_name = input('Enter your first name - ').strip()
+            l_name = input('Enter your last name - ').strip()
             password = input('Enter your password - ').strip()
 
-            save_user(new_user(fname,lname,password))
-            print(f"New Account Created for: {fname} {lname} and password {password}")
+            save_user(new_user(f_name,l_name,password))
+            print(" ")
+            print(f"New Account Created for: {f_name} {l_name} and password: {password}")
 
+        elif options == 'ex':
+            print("*"*40)
+            print("Goodbye!")
+            break
 
         elif options == 'li':
             print("*"*40)
@@ -89,7 +95,7 @@ def main():
                     options = input().lower().strip()
                     print("*"*40)
                     if options == "ex":
-                        print("")
+                        print("*"*40)
                         print(f"Thank you! {username}")
                         break
 
