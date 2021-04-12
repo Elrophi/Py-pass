@@ -60,8 +60,47 @@ def main():
     print("Welcome to PY-Password-Locker")
     while True:
         print('*'*40)
-        print("Select task to execute\n ca-Create Account \n l-Log In\n ex-Exit")
+        print("Select task to execute\n ca-Create Account \n li-Log In\n ex-Exit")
+        # strip() removes spaces at the begining and end of the input the user is providing
         options = input().lower().strip()
+        if options == 'ca':
+            print("*"*40+"\n")
+            print("Fill in your details")
+            fname = input('Enter your first name - ').strip()
+            lname = input('Enter your last name - ').strip()
+            password = input('Enter your password - ').strip()
+
+            save_user(new_user(fname,lname,password))
+            print(f"New Account Created for: {fname} {lname} and password {password}")
+
+
+        elif options == 'li':
+            print("*"*40)
+            print("To login, enter your account details")
+            username = input("Enter your first name - ").strip()
+            password = str(input("Enter your password - "))
+
+            user_exists = verify_user(username,password)
+            if user_exists == username:
+                print(f"welcome {username} feel free to continue and select an option ")
+                while True:
+                    print("*"*40)
+                    print("cc-Create your Credential \n dc-Display Credentila \n cp-Copy Password \n ex-Exit")
+                    options = input().lower().strip()
+                    print("*"*40)
+                    if options == "ex":
+                        print("")
+                        print(f"Thank you! {username}")
+                        break
+
+
+                    elif options == "ex":
+                        print("Enter your Details")
+
+
+
+        
+
 
 if __name__ == '__main__':
     main()   
