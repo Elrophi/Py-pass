@@ -60,8 +60,9 @@ class Details:
         saving new created user
         '''
         Details.details_list.append(self)
+
     # use of import string
-    def new_password(char = string.ascii_letters + string.punctuation + string.digits):
+    def new_password(char = string.ascii_letters+string.punctuation+string.digits):
         '''
         generate new password for user
          _ means ignore the index
