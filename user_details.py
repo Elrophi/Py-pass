@@ -1,5 +1,7 @@
 import pyperclip
 import random
+import string
+
 
 
 class User:
@@ -52,5 +54,26 @@ class Details:
         self.site = site
         self.account = account
         self.password = password
+
+    def save_details(self):
+        '''
+        saving new created user
+        '''
+        Details.details_list.append(self)
+    # use of import string
+    def new_password(char = string.ascii_letters + string.punctuation + string.digits):
+        passcode = "".join(random.choice(char) for x in range(random.randint(8, 16)))
+        return passcode
+
+    @classmethod
+    def display_details(cls,username):
+        '''
+        class method to display the details list
+        '''
+        user_details_list = []
+        for details in cls.details_list:
+            if details.username == username:
+                user_details_list.append(details)
+        return user_details_list
 
 
