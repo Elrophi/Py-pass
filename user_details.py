@@ -62,7 +62,11 @@ class Details:
         Details.details_list.append(self)
     # use of import string
     def new_password(char = string.ascii_letters + string.punctuation + string.digits):
-        passcode = "".join(random.choice(char) for x in range(random.randint(8, 16)))
+        '''
+        generate new password for user
+         _ means ignore the index
+         '''
+        passcode = "".join(random.choice(char) for _ in range(random.randint(8, 16)))
         return passcode
 
     @classmethod
@@ -75,5 +79,23 @@ class Details:
             if details.username == username:
                 user_details_list.append(details)
         return user_details_list
+
+
+    @classmethod
+    def find_by_site_name(cls,site):
+        '''
+        checks site name and returns user details
+        '''
+        for details in cls.details_list:
+            if details.site == site:
+                return details
+
+    @classmethod
+    def copy_details(cls,site):
+        '''copy user deails 
+        '''
+        find_details = Details.find_by_site_name(site)
+        return pyperclip.copy(find_details.password)
+
 
 
