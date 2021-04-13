@@ -91,7 +91,7 @@ def main():
                 print(f"welcome {username} feel free to continue and select an option ")
                 while True:
                     print("*"*40)
-                    print("cc-Create your Credential \n dc-Display Credentila \n cp-Copy Password \n ex-Exit")
+                    print("Select your option\n cc-Create your Credential \n dc-Display Credentila \n cp-Copy Password \n ex-Exit")
                     options = input().lower().strip()
                     print("*"*40)
                     if options == "ex":
@@ -106,7 +106,7 @@ def main():
                         account = input("Enter your account\'s name - ").strip()
                         while True:
                             # print("*"*40)
-                            print("Do you want\n up-User Password\n or gp-Generated Password\n or ex-Exit")
+                            print("Select your prefered password choice\n up-User Password\n gp-Generated Password\n ex-Exit")
                             pwd = input().lower().strip()
                             if pwd == 'up':
                                 print("*"*40)
@@ -124,7 +124,7 @@ def main():
 
                         save_details(create_detail(username,site,account,password))
                         print("*"*40)
-                        print(f"Details given: site- {site} account- {account} password- {password}")
+                        print(f"Credentials given below:\n site- {site}\n account- {account}\n password- {password}")
 
                     elif options == "dc":
                         print("*"*40)
@@ -132,7 +132,7 @@ def main():
                             print("Your Credentials:")
                             print("*"*40)
                             for details in display_details(username):
-                                print(f"site - {details.site} account - {details.account} password - {details.password}")
+                                print(f"These are your credentials\n site - {details.site}\n account - {details.account}\n password - {details.password}")
                                 print("*"*40)
                         else:
                             print("*"*40)
@@ -141,20 +141,22 @@ def main():
                     
                     elif options == "cp":
                         print("*"*40)
-                        pick_site = input("Enter site name and password to copy")
+                        pick_site = input("Enter site name - ")
+                        print("")
                         copy_details(pick_site)
-                        print("*"*40)
+                        print("*"*40 +"\n Password copied")
                     else:
                         print("Wrong input! Try again")
 
             else:
+                print("*"*40)
                 print("Wrong input! Try again")
 
         else:
-                print("Wrong input! Try again")
+            print("*"*40)
+            print("Wrong input! Try again")
 
                         
-
 
 
 if __name__ == '__main__':
