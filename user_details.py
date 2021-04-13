@@ -3,7 +3,7 @@ import random
 import string
 
 
-
+global users_list 
 class User:
     '''
     create and save user details
@@ -61,11 +61,12 @@ class Details:
         '''
         Details.details_list.append(self)
 
-    # use of import string
+   
     def new_password(char = string.ascii_letters+string.punctuation+string.digits):
         '''
         generate new password for user
          _ means ignore the index
+          # use of import string in char
          '''
         passcode = "".join(random.choice(char) for _ in range(random.randint(8, 16)))
         return passcode

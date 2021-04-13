@@ -20,8 +20,8 @@ def verify_user(fname,password):
     verify if there is already a user before adding details
     '''
 
-    check_user = Details.check_user(fname,password)
-    return check_user
+    checking_user = Details.check_user(fname,password)
+    return checking_user
 
 def new_password():
     '''
